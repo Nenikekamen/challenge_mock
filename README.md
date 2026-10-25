@@ -1,6 +1,6 @@
 # Challenge Mock - Sistema de Transacciones
 
-Este proyecto es una aplicación Spring Boot diseñada para procesar transacciones financieras interactuando con un proveedor externo. Utiliza **WireMock** para simular las respuestas del proveedor durante el desarrollo y las pruebas.
+Este proyecto es una aplicación Spring Boot diseñada para procesar transacciones financieras mockeadas
 
 ## Prerrequisitos
 
@@ -34,15 +34,3 @@ Para compilar el proyecto y ejecutar las pruebas unitarias e integración:
 ./mvnw clean test
 ```
 
-## Ejecución de la Aplicación
-
-1. Asegúrate de que WireMock esté arriba (`podman compose up -d`).
-2. Ejecuta la aplicación Spring Boot:
-
-```bash
-./mvnw spring-boot:run
-```
-
-## Configuración de Timeouts
-
-La aplicación está configurada para manejar timeouts y reintentos automáticos si el proveedor tarda más de lo esperado. Esta configuración se encuentra en `src/main/resources/application.yaml`.
