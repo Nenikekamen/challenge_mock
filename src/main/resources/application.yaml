@@ -1,6 +1,7 @@
 spring:
   application:
     name: challenge_mock
+server:
   port:
     8081
 provider:
