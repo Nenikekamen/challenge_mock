@@ -1,0 +1,9 @@
+# docker-compose.yml
+services:
+  provider-mock:
+    image: wiremock/wiremock:3x
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./wiremock:/home/wiremock
+    command: ["--global-response-templating", "--verbose"]
