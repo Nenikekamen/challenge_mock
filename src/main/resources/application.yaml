@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: challenge_mock
+  port:
+    8081
+provider:
+  base-url: http://localhost:8081
+  connect-timeout: 1s
+  read-timeout: 3s

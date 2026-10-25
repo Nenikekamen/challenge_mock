@@ -1,0 +1,31 @@
+{
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPath": "/provider/v1/execute",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": {
+          "expression": "$.type",
+          "equalTo": "CREDIT"
+        }
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "providerReference": "CRE-{{randomValue length=10 type='ALPHANUMERIC' uppercase=true}}",
+      "transactionId": "{{jsonPath request.body '$.transactionId'}}",
+      "status": "APPROVED",
+      "executedAt": "{{now}}",
+      "balance": 550.00
+    },
+    "transformers": [
+      "response-template"
+    ]
+  }
+}

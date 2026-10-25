@@ -1,0 +1,33 @@
+{
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPath": "/provider/v1/execute",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": {
+          "expression": "$.type",
+          "equalTo": "DEBIT"
+        }
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "providerReference": "DEB-{{randomValue length=10 type='ALPHANUMERIC' uppercase=true}}",
+      "transactionId": "{{jsonPath request.body '$.transactionId'}}",
+      "type": "DEBIT",
+      "status": "APPROVED",
+      "executedAt": "{{now}}",
+      "balance": 550.00,
+      "reason": null
+    },
+    "transformers": [
+      "response-template"
+    ]
+  }
+}
